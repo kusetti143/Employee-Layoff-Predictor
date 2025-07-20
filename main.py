@@ -4,7 +4,7 @@ import numpy as np
 import joblib
 import os
 import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 # Set Streamlit page config with a custom theme color
 st.set_page_config(page_title="Employee Layoff Predictor", layout="centered", page_icon="👥")
