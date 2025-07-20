@@ -58,8 +58,6 @@ if about:
         - Upload a CSV or enter details manually
         - View predictions, probabilities, and visual summaries
         - Download results for further analysis
-        
-        **Developed with Streamlit, scikit-learn, XGBoost, and more.**
         """
     )
 
