@@ -4,7 +4,8 @@ import numpy as np
 import joblib
 import os
 import matplotlib.pyplot as plt
-
+import seaborn as sns
+import subprocess
 
 # Set Streamlit page config with a custom theme color
 st.set_page_config(page_title="Employee Layoff Predictor", layout="centered", page_icon="👥")
@@ -105,6 +106,24 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.sidebar.header("Model Retraining")
+retrain_file = st.sidebar.file_uploader("Upload new training CSV", type=["csv"], key="retrain")
+if retrain_file is not None:
+    with open("TrainDatasets/user_uploaded.csv", "wb") as f:
+        f.write(retrain_file.getbuffer())
+    st.sidebar.success("File uploaded. Ready to retrain.")
+    if st.sidebar.button("Retrain Model"):
+        with st.spinner("Retraining model... This may take a while."):
+            result = subprocess.run(
+                ["python", "train_model.py"],
+                capture_output=True,
+                text=True
+            )
+            if result.returncode == 0:
+                st.sidebar.success("Model retrained successfully! The app will now use the new model.")
+            else:
+                st.sidebar.error(f"Retraining failed:\n{result.stderr}")
 
 if input_mode == "Upload CSV":
     uploaded_file = st.file_uploader("Upload Employee CSV", type=["csv"])
@@ -207,3 +226,4 @@ else:
         else:
             st.markdown(f'<div style="background-color:#43a047;padding:1rem;border-radius:8px;color:white;font-size:1.2rem;font-weight:600;">Prediction: <b>No</b> (Probability: {prob:.2f})</div>', unsafe_allow_html=True)
 
+ 
