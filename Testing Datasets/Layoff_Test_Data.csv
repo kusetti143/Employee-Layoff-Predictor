@@ -1,0 +1,6 @@
+EmployeeID,Tenure,Salary,PerformanceScore,Department,JobRole
+5001,2,45000,1,HR,Assistant
+5002,9,105000,0,Sales,Manager
+5003,7,85000,3,IT,Developer
+5004,2,43000,0,Marketing,Consultant
+5005,11,125000,5,HR,Manager

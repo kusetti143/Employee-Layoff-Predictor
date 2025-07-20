@@ -1,0 +1,4 @@
+EmployeeID,Tenure,Salary,PerformanceScore,Department,JobRole
+1001,5,75000,3,Sales,Analyst
+1002,12,120000,5,HR,Manager
+1003,3,45000,2,Marketing,Consultant
