@@ -4,7 +4,6 @@ import numpy as np
 import joblib
 import os
 import matplotlib.pyplot as plt
-import seaborn as sns
 import subprocess
 
 # Set Streamlit page config with a custom theme color
