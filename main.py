@@ -4,8 +4,8 @@ import numpy as np
 import joblib
 import os
 import matplotlib.pyplot as plt
+import seaborn as sns
 import subprocess
-import sys
 
 # Set Streamlit page config with a custom theme color
 st.set_page_config(page_title="Employee Layoff Predictor", layout="centered", page_icon="👥")
@@ -116,7 +116,7 @@ if retrain_file is not None:
     if st.sidebar.button("Retrain Model"):
         with st.spinner("Retraining model... This may take a while."):
             result = subprocess.run(
-                [sys.executable, "train_model.py"],
+                ["python", "train_model.py"],
                 capture_output=True,
                 text=True
             )
